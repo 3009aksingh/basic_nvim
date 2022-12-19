@@ -128,6 +128,119 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 	use("j-hui/fidget.nvim")
 
+	---------------------=============================================================================-------------------
+
+	use("junegunn/fzf") -- fuzzy finder to search through docs
+	use("junegunn/fzf.vim") -- fuzzy finder to search through docs
+	use("airblade/vim-rooter") -- helps fuzzy finder to search through git files too.
+
+	use("tpope/vim-commentary") -- comment plugin : useful for commenting
+	-- for commenting with respect to the file type
+
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+
+	-- fuzzy finding w/ telescope
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
+
+	-- markdown-preview.nvim : markdown preview plugin
+	use({ "iamcco/markdown-preview.nvim" })
+
+	use("hrsh7th/cmp-cmdline") -- completions for '/' search and command mode based on current buffer
+	use("hrsh7th/cmp-nvim-lua")
+
+	use("ray-x/lsp_signature.nvim") -- show function signature when you type
+
+	use("BurntSushi/ripgrep") -- line-oriented search tool that recursively searches the current directory for a regex pattern.
+
+	use("nvim-pack/nvim-spectre") -- a search panel for neovim
+
+	--debugger DAP nvim
+	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+
+	-- formatting & linting
+	use("kana/vim-operator-user") -- formatter pre-requisite package for vim-clangd package.
+	use("rhysd/vim-clang-format") -- formatter for c/c++
+
+	-- preettier for nvim lsp
+	use("MunifTanjim/prettier.nvim")
+
+	use("tpope/vim-fugitive") -- vim plugin for Git
+
+	use("farmergreg/vim-lastplace") --Intelligently reopen files at your last edit position in Vim
+
+	-- With VimWiki, you can:
+
+	-- Organize notes and ideas
+	-- Manage to-do lists
+	-- Write documentation
+	-- Maintain a diary
+	-- Export everything to HTML
+
+	use("vimwiki/vimwiki") -- Personal Wiki for Vim
+
+	use("tpope/vim-eunuch") -- Vim sugar for the UNIX shell commands that need it the most
+
+	use("tpope/vim-sleuth") -- Heurestically set buffer options
+
+	-- Toggleterm.nvim => to toggle between terminal and nvim mainly
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
+
+	-- Plugin for adding annotations feature
+	use({
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({})
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
+
+	-- plugin for C/C++ language support
+	use("vim-jp/vim-cpp")
+	--	use("dense-analysis/ale")
+
+	use({
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		"Badhi/nvim-treesitter-cpp-tools",
+	})
+
+	use("neoclide/coc.nvim")
+
+	use("jiangmiao/auto-pairs")
+
+	-- Plugin for a collection of language packs for Vim
+	use("sheerun/vim-polyglot")
+
+	-- Adding transparency effect to nvim --------------
+
+	use("xiyaowong/nvim-transparent")
+
+	------------------------------------------------------
+
+	-----------------------------
+	use("mattn/emmet-vim") --a vim plug-in which provides support for expanding abbreviations similar to emmet.
+
+	-- -- package for ChatGPT
+	-- use({
+	-- 	"jackMort/ChatGPT.nvim",
+	-- 	config = function()
+	-- 		require("chatgpt").setup({
+	-- 			-- optional configuration
+	-- 		})
+	-- 	end,
+	-- 	requires = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 	},
+	-- })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

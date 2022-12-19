@@ -1,4 +1,4 @@
-local status, _ = pcall(vim.cmd, "colorscheme tokyonight-night") -- lunar
+local status, _ = pcall(vim.cmd, "colorscheme tokyonight") -- lunar
 if not status then
 	print("Colorscheme not found!")
 	return
@@ -18,8 +18,8 @@ require("tokyonight").setup({
 		functions = {},
 		variables = {},
 		-- Background styles. Can be "dark", "transparent" or "normal"
-		sidebars = "dark", -- style for sidebars, see below
-		floats = "dark", -- style for floating windows
+		sidebars = "transparent", -- style for sidebars, see below
+		floats = "transparent", -- style for floating windows
 	},
 	sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
 	day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -38,4 +38,36 @@ require("tokyonight").setup({
 	---@param colors ColorScheme
 	on_highlights = function(highlights, colors) end,
 
+	------------------------------------
+	--
+	on_highlights = function(hl, c)
+		local prompt = "#2d3149"
+		hl.TelescopeNormal = {
+			bg = c.bg_dark,
+			fg = c.fg_dark,
+		}
+		hl.TelescopeBorder = {
+			bg = c.bg_dark,
+			fg = c.bg_dark,
+		}
+		hl.TelescopePromptNormal = {
+			bg = prompt,
+		}
+		hl.TelescopePromptBorder = {
+			bg = prompt,
+			fg = prompt,
+		}
+		hl.TelescopePromptTitle = {
+			bg = prompt,
+			fg = prompt,
+		}
+		hl.TelescopePreviewTitle = {
+			bg = c.bg_dark,
+			fg = c.bg_dark,
+		}
+		hl.TelescopeResultsTitle = {
+			bg = c.bg_dark,
+			fg = c.bg_dark,
+		}
+	end,
 })
