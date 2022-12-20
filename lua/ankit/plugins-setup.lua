@@ -369,8 +369,54 @@ return packer.startup(function(use)
 		},
 	})
 
-	use("EdenEast/nightfox.nvim")
+	---== Few more Color schemes ==----
 
+	use("EdenEast/nightfox.nvim") -- just another colorscheme ;)
+	use("Yazeed1s/oh-lucy.nvim")
+	-- Lua
+
+	use({
+		"olivercederborg/poimandres.nvim",
+		config = function()
+			require("poimandres").setup({
+				-- leave this setup function empty for default config
+				-- or refer to the configuration section
+				-- for configuration options
+			})
+		end,
+	})
+
+	use("Yazeed1s/minimal.nvim")
+
+	-- Packer
+	use("olimorris/onedarkpro.nvim")
+
+	use({
+		"ray-x/starry.nvim",
+		setup = function()
+			-- see example setup below
+			vim.g.starry_italic_comments = true
+		end,
+	})
+	-- use({
+	-- 	"rose-pine/neovim",
+	-- 	as = "rose-pine",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme rose-pine")
+	-- 	end,
+	-- })
+	-- use({
+	-- 	"projekt0n/github-nvim-theme",
+	-- 	config = function()
+	-- 		require("github-theme").setup({
+	-- 			-- ...
+	-- 		})
+	-- 	end,
+	-- })
+
+	-- Using Packer:
+	use("Mofiqul/dracula.nvim")
+	use("dracula/vim")
 	-- Screensaver
 	-- use({
 	-- 	"folke/drop.nvim",
@@ -379,6 +425,29 @@ return packer.startup(function(use)
 	-- 		require("drop").setup()
 	-- 	end,
 	-- })
+
+	-- Using Packer
+	use("navarasu/onedark.nvim")
+
+	-- If you are using Packer
+	use("shaunsingh/moonlight.nvim")
+
+	-----------====================Colorscheme ended================----------------
+
+	-- winbar plugin to provide a bar which resembles the location of file we are working : eg. lua > ankit > plugins-setup.lua > packer.startup
+	use({
+		"utilyre/barbecue.nvim",
+		requires = {
+			"neovim/nvim-lspconfig",
+			"smiteshp/nvim-navic",
+			"kyazdani42/nvim-web-devicons", -- optional
+		},
+		config = function()
+			require("barbecue").setup()
+		end,
+	})
+
+	use("petertriho/nvim-scrollbar")
 
 	if packer_bootstrap then
 		require("packer").sync()
