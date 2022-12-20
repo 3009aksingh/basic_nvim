@@ -203,6 +203,9 @@ return packer.startup(function(use)
 
 	-- plugin for C/C++ language support
 	use("vim-jp/vim-cpp")
+
+	--  WARNING: dense-analysis plugins brings unnecessary warning in C/C++ code.
+
 	--	use("dense-analysis/ale")
 
 	use({
@@ -226,19 +229,155 @@ return packer.startup(function(use)
 	-----------------------------
 	use("mattn/emmet-vim") --a vim plug-in which provides support for expanding abbreviations similar to emmet.
 
-	-- -- package for ChatGPT
+	-- Highlight, list and search todo comments in your projects
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
+
+	--  A pretty diagnostics, references, telescope results,
+	--  quickfix and location list to help you solve all the
+	--  trouble your code is causing.
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
+
+	-- Live server for automating the reloading of web pages after editing.
+	use("manzeloth/live-server")
+
+	-- Highly experimental plugin that completely replaces the UI for
+	-- messages, cmdline and the popupmenu
 	-- use({
-	-- 	"jackMort/ChatGPT.nvim",
+	-- 	"folke/noice.nvim",
 	-- 	config = function()
-	-- 		require("chatgpt").setup({
-	-- 			-- optional configuration
+	-- 		require("noice").setup({
+	-- 			-- add any options here
 	-- 		})
 	-- 	end,
 	-- 	requires = {
+	-- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 	-- 		"MunifTanjim/nui.nvim",
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-telescope/telescope.nvim",
+	-- 		-- OPTIONAL:
+	-- 		--   `nvim-notify` is only needed, if you want to use the notification view.
+	-- 		--   If not available, we use `mini` as the fallback
+	-- 		"rcarriga/nvim-notify",
 	-- 	},
+	-- })
+
+	-- Display a popup with possible keybindings of the command you started typing
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
+
+	--  Allowing you to jump anywhere in a document with as few keystrokes as possible
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	})
+
+	--	require("packer").use({ "mhartington/formatter.nvim" })
+
+	-- plugin for automatically highlighting other uses of the word
+	-- under the cursor using either LSP, Tree-sitter, or regex matching.
+	-- use("RRethy/vim-illuminate")
+
+	-- Neovim setup for init.lua and plugin development with full signature help,
+	-- docs and completion for the nvim lua API.
+	--	use("folke/neodev.nvim")
+
+	-- Peek lines just when you intend
+	use("nacro90/numb.nvim")
+
+	-- The goal of nvim-bqf is to make Neovim's quickfix window better.
+	use({ "kevinhwang91/nvim-bqf" })
+
+	-- Make Ranger running in a floating window to communicate with Neovim via RPC
+	use("kevinhwang91/rnvimr")
+
+	-- Edit and review GitHub issues and pull requests from the comfort of your favorite editor
+	use({
+		"pwntester/octo.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = function()
+			require("octo").setup()
+		end,
+	})
+
+	-- required for below package Gist
+	use("mattn/webapi-vim")
+
+	-- Vim plugin for Gist
+	use("mattn/vim-gist") -- TODO: need to configure it when needed
+
+	-- Rainbow brackets customization plugin
+	use("p00f/nvim-ts-rainbow")
+
+	-- superior project management solution for neovim.
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
+
+	-- package for ChatGPT
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup({
+				-- optional configuration
+			})
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
+
+	use("EdenEast/nightfox.nvim")
+
+	-- Screensaver
+	-- use({
+	-- 	"folke/drop.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = function()
+	-- 		require("drop").setup()
+	-- 	end,
 	-- })
 
 	if packer_bootstrap then
