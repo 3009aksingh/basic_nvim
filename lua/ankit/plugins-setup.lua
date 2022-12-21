@@ -447,7 +447,21 @@ return packer.startup(function(use)
 		end,
 	})
 
-	use("petertriho/nvim-scrollbar")
+	use("petertriho/nvim-scrollbar") -- to add scrollbar
+
+	-- competitive programmer helpful plugins
+	use({ -- TODO: need to understand how to use it
+		"xeluxee/competitest.nvim",
+		requires = "MunifTanjim/nui.nvim",
+		config = function()
+			require("competitest").setup()
+		end,
+	})
+
+	use("p00f/cphelper.nvim") -- TODO: need to understand about how to use it
+
+	-- Clean and elegant distraction-free writing for NeoVim
+	use("Pocco81/true-zen.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
