@@ -1,11 +1,11 @@
 local opt = vim.opt --for conciseness
 
 -- line numbers
-opt.relativenumber = true
+opt.relativenumber = false
 opt.number = true
 
 -- tabs & indentation
-opt.tabstop = 5
+opt.tabstop = 4
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true

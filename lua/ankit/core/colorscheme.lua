@@ -1,4 +1,4 @@
-local status, _ = pcall(vim.cmd, "colorscheme tokyonight") -- lunar
+local status, _ = pcall(vim.cmd, "colorscheme tokyonight-night``") -- lunar
 if not status then
 	print("Colorscheme not found!")
 	return
@@ -71,3 +71,67 @@ require("tokyonight").setup({
 		}
 	end,
 })
+
+-- require("catppuccin").setup({
+-- 	flavour = "mocha", -- latte, frappe, macchiato, mocha
+-- 	background = { -- :h background
+-- 		light = "latte",
+-- 		dark = "mocha",
+-- 	},
+-- 	transparent_background = true,
+-- 	term_colors = true,
+-- 	dim_inactive = {
+-- 		enabled = false,
+-- 		shade = "dark",
+-- 		percentage = 0.15,
+-- 	},
+-- 	no_italic = false, -- Force no italic
+-- 	no_bold = false, -- Force no bold
+-- 	styles = {
+-- 		comments = { "italic" },
+-- 		conditionals = { "italic" },
+-- 		loops = {},
+-- 		functions = {},
+-- 		keywords = {},
+-- 		strings = {},
+-- 		variables = {},
+-- 		numbers = {},
+-- 		booleans = {},
+-- 		properties = {},
+-- 		types = {},
+-- 		operators = {},
+-- 	},
+-- 	color_overrides = {},
+-- 	custom_highlights = {},
+-- 	integrations = {
+-- 		cmp = true,
+-- 		gitsigns = true,
+-- 		nvimtree = true,
+-- 		telescope = true,
+-- 		notify = true,
+-- 		-- mini = false,
+-- 		-- dashboard = true,
+-- 		-- hop = true,
+-- 		-- lsp_saga = true,
+-- 		-- lualine = true,
+-- 		-- mason = true,
+-- 		-- cmp = true,
+-- 		-- dap = true,
+-- 		-- native_lsp = true,
+-- 		-- navic = true,
+-- 		-- treesitter_context = true,
+-- 		-- treesitter = true,
+-- 		-- ts_rainbow = true,
+-- 		-- lsp_trouble = true,
+-- 		-- Special = true,
+-- 		-- illuminate = true,
+-- 		-- vimwiki = true,
+-- 		-- which_key = true,
+-- 		-- gitgutter = true,
+--
+-- 		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+-- 	},
+-- })
+--
+-- -- setup must be called before loading
+-- vim.cmd.colorscheme("catppuccin")

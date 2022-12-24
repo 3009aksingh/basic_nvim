@@ -278,7 +278,7 @@ return packer.startup(function(use)
 	-- 		"rcarriga/nvim-notify",
 	-- 	},
 	-- })
-
+	--
 	-- Display a popup with possible keybindings of the command you started typing
 	use({
 		"folke/which-key.nvim",
@@ -373,7 +373,8 @@ return packer.startup(function(use)
 
 	use("EdenEast/nightfox.nvim") -- just another colorscheme ;)
 	use("Yazeed1s/oh-lucy.nvim")
-	-- Lua
+	use("arzg/vim-colors-xcode")
+	use("sam4llis/nvim-tundra")
 
 	use({
 		"olivercederborg/poimandres.nvim",
@@ -447,8 +448,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	use("petertriho/nvim-scrollbar") -- to add scrollbar
-
 	-- competitive programmer helpful plugins
 	use({ -- TODO: need to understand how to use it
 		"xeluxee/competitest.nvim",
@@ -462,6 +461,48 @@ return packer.startup(function(use)
 
 	-- Clean and elegant distraction-free writing for NeoVim
 	use("Pocco81/true-zen.nvim")
+
+	-- Note taking plugin which uses the feature of node and trees. TODO: need to learn the implementation
+	-- https://youtu.be/UWSOGoHqkv4
+	use({
+		"phaazon/mind.nvim",
+		branch = "v2.2",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("mind").setup()
+		end,
+	})
+
+	-- Improves the UI
+	use("stevearc/dressing.nvim")
+
+	-- Extra syntax and highlight for nerdtree files
+	use("tiagofumo/vim-nerdtree-syntax-highlight")
+
+	-- Emoji/Unicode Icons Theme for Vim and Neovim with support for 40+ plugins and 380+ filetypes
+	use("adelarsq/vim-emoji-icon-theme")
+
+	-- A collection of LS_COLORS definitions; needs your contribution!
+	use("trapd00r/LS_COLORS")
+
+	-- Scrollbar
+	use("petertriho/nvim-scrollbar")
+	use({
+		"kevinhwang91/nvim-hlslens",
+		config = function()
+			-- require('hlslens').setup() is not required
+			require("scrollbar.handlers.search").setup({
+				-- hlslens config overrides
+			})
+		end,
+	})
+
+	use({
+		"nvim-zh/colorful-winsep.nvim",
+		config = function()
+			require("colorful-winsep").setup()
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

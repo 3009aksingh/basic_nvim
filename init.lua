@@ -18,6 +18,7 @@ require("ankit.plugins.bufferline")
 require("ankit.plugins.neoscroll")
 require("ankit.plugins.nvim-colorizer")
 require("ankit.plugins.alpha-nvim")
-require("ankit.plugins.notify")
+-- require("ankit.plugins.notify")
 require("ankit.plugins.toggleterm-nvim")
+require("ankit.plugins.scrollbar")
 -- require("ankit.plugins.rainbow") -- uncomment this line if you want rainbow colorized brackets
