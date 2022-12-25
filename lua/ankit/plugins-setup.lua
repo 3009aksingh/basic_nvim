@@ -125,7 +125,7 @@ return packer.startup(function(use)
 	})
 
 	-- to show the progress of downloads and notifications
-	use("rcarriga/nvim-notify")
+	--	use("rcarriga/nvim-notify")
 	use("j-hui/fidget.nvim")
 
 	---------------------=============================================================================-------------------
