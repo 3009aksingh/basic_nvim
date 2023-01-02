@@ -22,4 +22,7 @@ require("ankit.plugins.alpha-nvim")
 require("ankit.plugins.toggleterm-nvim")
 require("ankit.plugins.scrollbar")
 require("ankit.plugins.dashboard")
+require("ankit.plugins.neogit")
+require("ankit.plugins.aerial")
+require("ankit.plugins.outline")
 -- require("ankit.plugins.rainbow") -- uncomment this line if you want rainbow colorized brackets
