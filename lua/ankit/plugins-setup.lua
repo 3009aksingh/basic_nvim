@@ -559,13 +559,13 @@ return packer.startup(function(use)
 	use("echasnovski/mini.animate")
 
 	-- To create image of code
-	use({
-		"narutoxy/silicon.lua",
-		requires = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("silicon").setup({})
-		end,
-	})
+	-- use({
+	-- 	"narutoxy/silicon.lua",
+	-- 	requires = { "nvim-lua/plenary.nvim" },
+	-- 	config = function()
+	-- 		require("silicon").setup({})
+	-- 	end,
+	-- })
 
 	if packer_bootstrap then
 		require("packer").sync()
