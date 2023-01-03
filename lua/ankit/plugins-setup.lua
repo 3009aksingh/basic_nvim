@@ -427,6 +427,10 @@ return packer.startup(function(use)
 	-- 	end,
 	-- })
 
+	use("katawful/kat.nvim")
+
+	use({ "kartikp10/noctis.nvim", requires = { "rktjmp/lush.nvim" } })
+
 	-- Using Packer
 	use("navarasu/onedark.nvim")
 
@@ -543,6 +547,25 @@ return packer.startup(function(use)
 	})
 
 	use("simrat39/symbols-outline.nvim")
+
+	use("DaikyXendo/nvim-material-icon")
+
+	use({
+		"mrjones2014/legendary.nvim",
+		-- sqlite is only needed if you want to use frecency sorting
+		-- requires = 'kkharji/sqlite.lua'
+	})
+
+	use("echasnovski/mini.animate")
+
+	-- To create image of code
+	use({
+		"narutoxy/silicon.lua",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("silicon").setup({})
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

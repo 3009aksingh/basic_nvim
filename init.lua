@@ -25,4 +25,7 @@ require("ankit.plugins.dashboard")
 require("ankit.plugins.neogit")
 require("ankit.plugins.aerial")
 require("ankit.plugins.outline")
+require("ankit.plugins.legendary")
+-- require("ankit.plugins.mini")               NOTE: animates the nvim (few bad animation exist)
+-- require("ankit.plugins.material_icon")
 -- require("ankit.plugins.rainbow") -- uncomment this line if you want rainbow colorized brackets
