@@ -569,6 +569,23 @@ return packer.startup(function(use)
 
 	use("doums/dmap.nvim")
 
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
+
+	use("jinh0/eyeliner.nvim")
+
+	-- Is using a standard Neovim install, i.e. built from source or using a
+	-- provided appimage.
+
+	use("lewis6991/impatient.nvim") -- Speeds up the startup of neovim
+
+	--use("elihunter173/dirbuf.nvim") --edit your filesystem like you edit text
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
