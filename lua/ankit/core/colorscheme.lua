@@ -47,8 +47,8 @@ require("tokyonight").setup({
 			fg = c.fg_dark,
 		}
 		hl.TelescopeBorder = {
-			bg = c.bg_dark,
-			fg = c.bg_dark,
+			bg = c.bg_light,
+			fg = c.bg_light,
 		}
 		hl.TelescopePromptNormal = {
 			bg = prompt,
@@ -73,7 +73,7 @@ require("tokyonight").setup({
 })
 
 --------------=======================================================================================================--------------------
-
+--
 -- require("catppuccin").setup({
 -- 	flavour = "mocha", -- latte, frappe, macchiato, mocha
 -- 	background = { -- :h background
@@ -110,30 +110,48 @@ require("tokyonight").setup({
 -- 		gitsigns = true,
 -- 		nvimtree = true,
 -- 		telescope = true,
--- 		notify = true,
--- 		-- mini = false,
--- 		-- dashboard = true,
--- 		-- hop = true,
--- 		-- lsp_saga = true,
--- 		-- lualine = true,
--- 		-- mason = true,
--- 		-- cmp = true,
--- 		-- dap = true,
--- 		-- native_lsp = true,
--- 		-- navic = true,
--- 		-- treesitter_context = true,
--- 		-- treesitter = true,
--- 		-- ts_rainbow = true,
--- 		-- lsp_trouble = true,
--- 		-- Special = true,
--- 		-- illuminate = true,
--- 		-- vimwiki = true,
--- 		-- which_key = true,
--- 		-- gitgutter = true,
---
+-- 		notify = false,
+-- 		mini = false,
 -- 		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 -- 	},
 -- })
 --
 -- -- setup must be called before loading
 -- vim.cmd.colorscheme("catppuccin")
+--
+--
+--
+--
+-- ----------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------
+--
+--
+--
+--
+-- local colorscheme = "tokyonight-night"
+--
+-- -- Transparent
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		local hl_groups = {
+-- 			"Normal",
+-- 			"SignColumn",
+-- 			"NormalNC",
+-- 			"TelescopeBorder",
+-- 			"NvimTreeNormal",
+-- 			"EndOfBuffer",
+-- 			"MsgArea",
+-- 		}
+-- 		for _, name in ipairs(hl_groups) do
+-- 			vim.cmd(string.format("highlight %s ctermbg=none guibg=none", name))
+-- 		end
+-- 	end,
+-- })
+--
+-- vim.opt.fillchars = "eob: "
+--
+-- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+-- if not status_ok then
+-- 	return
+-- end

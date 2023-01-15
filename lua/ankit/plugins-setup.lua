@@ -58,6 +58,9 @@ return packer.startup(function(use)
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
 
+	--indentline
+	use("lukas-reineke/indent-blankline.nvim")
+
 	--fuzzy finding
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
@@ -80,7 +83,15 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	-- enhanced lsp uis
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+	})
+
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -264,11 +275,11 @@ return packer.startup(function(use)
 	-- messages, cmdline and the popupmenu
 	-- use({
 	-- 	"folke/noice.nvim",
-	-- 	config = function()
-	-- 		require("noice").setup({
-	-- 			-- add any options here
-	-- 		})
-	-- 	end,
+	-- 	-- config = function()
+	-- 	-- require("noice").setup({
+	-- 	-- 	-- add any options here
+	-- 	-- })
+	-- 	-- end,
 	-- 	requires = {
 	-- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 	-- 		"MunifTanjim/nui.nvim",
@@ -309,7 +320,7 @@ return packer.startup(function(use)
 
 	-- Neovim setup for init.lua and plugin development with full signature help,
 	-- docs and completion for the nvim lua API.
-	--	use("folke/neodev.nvim")
+	use("folke/neodev.nvim")
 
 	-- Peek lines just when you intend
 	use("nacro90/numb.nvim")

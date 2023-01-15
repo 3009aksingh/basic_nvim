@@ -1,24 +1,68 @@
--- import lspsaga safely
-local saga_status, saga = pcall(require, "lspsaga")
-if not saga_status then
-	return
-end
+-- -- import lspsaga safely
+-- local saga_status, saga = pcall(require, "lspsaga")
+-- if not saga_status then
+-- 	return
+-- end
+--
+-- local colors = require("tokyonight.colors").setup() -- pass in any of the config options as explained above
+-- local util = require("tokyonight.util")
+--
+-- --aplugin.background = colors.bg_dark
+-- --aplugin.my_error = util.brighten(colors.red1, 0.3)
+--
+-- saga.init_lsp_saga({
+-- 	-- keybinds for navigation in lspsaga window
+-- 	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
+-- 	-- use enter to open file with finder
+-- 	finder_action_keys = {
+-- 		open = "<CR>",
+-- 	},
+-- 	-- use enter to open file with definition preview
+-- 	definition_action_keys = {
+-- 		edit = "<CR>",
+-- 	},
+-- })
+--
+-- -----------------------------------------------------------
+-- ---------------------------------------------------------------
 
-local colors = require("tokyonight.colors").setup() -- pass in any of the config options as explained above
-local util = require("tokyonight.util")
+local status_ok, saga = pcall(require, "lspsaga")
 
---aplugin.background = colors.bg_dark
---aplugin.my_error = util.brighten(colors.red1, 0.3)
+saga.init_lsp_saga({})
+local keymap = vim.keymap.set
 
-saga.init_lsp_saga({
-	-- keybinds for navigation in lspsaga window
-	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
-	-- use enter to open file with finder
-	finder_action_keys = {
-		open = "<CR>",
-	},
-	-- use enter to open file with definition preview
-	definition_action_keys = {
-		edit = "<CR>",
-	},
-})
+-- Lsp finder find the symbol definition implement reference
+-- if there is no implement it will hide
+-- when you use action in finder like open vsplit then you can
+-- use <C-t> to jump back
+keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+
+-- Code action
+keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+
+-- Rename
+keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+
+-- Show line diagnostics
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+
+-- Show cursor diagnostics
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+
+-- Diagnostic jump can use `<c-o>` to jump back
+keymap("n", "<c-k>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+keymap("n", "<c-j>", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+
+-- Only jump to error
+keymap("n", "[E", function()
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+keymap("n", "]E", function()
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+-- Outline
+keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+
+-- close floaterm
+keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
