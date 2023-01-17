@@ -168,6 +168,14 @@ return packer.startup(function(use)
 	--debugger DAP nvim
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use("Pocco81/DAPInstall.nvim")
+
+	use({
+		"gelguy/wilder.nvim",
+		config = function()
+			-- config goes here
+		end,
+	})
 
 	-- formatting & linting
 	use("kana/vim-operator-user") -- formatter pre-requisite package for vim-clangd package.
