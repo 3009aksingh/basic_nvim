@@ -34,6 +34,7 @@ return packer.startup(function(use)
 
 	use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 	use("folke/tokyonight.nvim") -- colorscheme : tokyonight
+	use("JoosepAlviste/palenightfall.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- colorscheme : catppuccin
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -484,6 +485,8 @@ return packer.startup(function(use)
 
 	-- Clean and elegant distraction-free writing for NeoVim
 	use("Pocco81/true-zen.nvim")
+
+	use("dstein64/vim-startuptime")
 
 	-- Note taking plugin which uses the feature of node and trees. TODO: need to learn the implementation
 	-- https://youtu.be/UWSOGoHqkv4
