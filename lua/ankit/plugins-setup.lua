@@ -506,7 +506,7 @@ return packer.startup(function(use)
 	use("tiagofumo/vim-nerdtree-syntax-highlight")
 
 	-- Emoji/Unicode Icons Theme for Vim and Neovim with support for 40+ plugins and 380+ filetypes
-	use("adelarsq/vim-emoji-icon-theme")
+	-- use("adelarsq/vim-emoji-icon-theme")
 
 	-- A collection of LS_COLORS definitions; needs your contribution!
 	use("trapd00r/LS_COLORS")
